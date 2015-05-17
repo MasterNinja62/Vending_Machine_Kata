@@ -55,14 +55,14 @@ public class VendingMachineKata {
         Integer current_quarter_count = current_change_in_machine.get("Quarter");
         Integer current_nickel_count = current_change_in_machine.get("Nickel");
         Integer current_dime_count = current_change_in_machine.get("Dime");
-        while(current_inserted_coin_amount > 0) {
-            if ((current_coin_amount_in_coin_return >= .25f)&&(current_quarter_count > 0)) {
+        while(Math.round(current_inserted_coin_amount*100.0)/100.0f > 0f) {
+            if ((current_inserted_coin_amount >= .25f)&&(current_quarter_count > 0)) {
                 current_dime_count--;
                 current_change_in_machine.put("Quarter", current_quarter_count);
                 current_inserted_coin_amount-=.25f;
                 current_coin_amount_in_coin_return+=.25f;
             }
-            else if ((current_coin_amount_in_coin_return >= .1f)&&(current_dime_count > 0)) {
+            else if ((current_inserted_coin_amount >= .1f)&&(current_dime_count > 0)) {
                 current_dime_count--;
                 current_change_in_machine.put("Dime", current_dime_count);
                 current_inserted_coin_amount-=.1f;
@@ -109,9 +109,13 @@ public class VendingMachineKata {
             return_coins();
             return "THANK YOU";
         }
-        else {
-            return "INSERT COINS";
+        else if (cost_of_product > current_inserted_coin_amount) {
+            String val = "PRICE $";
+            val += String.format("%.02f", cost_of_product);
+            return val;
         }
+        else
+            return "INSERT COINS";
     }
 
     public void set_change_in_machine(Integer quarter_count, Integer dime_count, Integer nickel_count) {
