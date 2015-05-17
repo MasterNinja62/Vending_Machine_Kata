@@ -55,22 +55,22 @@ public class VendingMachineTests {
         assertEquals("INSERT COINS", vendingMachine.check_display());
         vendingMachine.insert_coin("Quarter");
         assertEquals("$0.25", vendingMachine.check_display());
-        assertEquals("$0.00", vendingMachine.check_coint_return());
+        assertEquals("$0.00", vendingMachine.check_coin_return());
         vendingMachine.insert_coin("Quarter");
         assertEquals("$0.50", vendingMachine.check_display());
-        assertEquals("$0.00", vendingMachine.check_coint_return());
+        assertEquals("$0.00", vendingMachine.check_coin_return());
         vendingMachine.insert_coin("Quarter");
         assertEquals("$0.75", vendingMachine.check_display());
-        assertEquals("$0.00", vendingMachine.check_coint_return());
+        assertEquals("$0.00", vendingMachine.check_coin_return());
         assertEquals("THANK YOU", vendingMachine.select_product("Candy"));
-        assertEquals("$0.10", vendingMachine.check_coint_return());
+        assertEquals("$0.10", vendingMachine.check_coin_return());
     }
     @Test
     public void invalid_coin() {
         assertEquals("INSERT COINS", vendingMachine.check_display());
         vendingMachine.insert_coin("Penny");
         assertEquals("$0.00", vendingMachine.check_display());
-        assertEquals("Penny", vendingMachine.check_coint_return());
+        assertEquals("Penny", vendingMachine.check_coin_return());
     }
     @Test
     public void sold_out_no_money_inserted() {
@@ -94,7 +94,7 @@ public class VendingMachineTests {
     public void return_coins_none_inserted() {
         assertEquals("INSERT COINS", vendingMachine.check_display());
         vendingMachine.return_coins();
-        assertEquals("$0.00", vendingMachine.check_coint_return());
+        assertEquals("$0.00", vendingMachine.check_coin_return());
     }
     @Test
     public void return_coins_inserted() {
@@ -102,7 +102,7 @@ public class VendingMachineTests {
         vendingMachine.insert_coin("Dime");
         assertEquals("$0.10", vendingMachine.check_display());
         vendingMachine.return_coins();
-        assertEquals("$0.00", vendingMachine.check_coint_return());
+        assertEquals("$0.00", vendingMachine.check_coin_return());
     }
     @Test
     public void all_coins_added_correctly() {

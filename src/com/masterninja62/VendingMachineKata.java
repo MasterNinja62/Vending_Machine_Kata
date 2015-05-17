@@ -4,7 +4,7 @@ public class VendingMachineKata {
     public String check_display() {
         return "INSERT COINS";
     }
-    public String check_coint_return() {
+    public String check_coin_return() {
         return "INSERT COINS";
     }
     public void return_coins(){
