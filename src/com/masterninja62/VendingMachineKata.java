@@ -30,7 +30,7 @@ public class VendingMachineKata {
     private String unknown_coins_in_coin_return = "";
 
     public String check_display() {
-        if (current_inserted_coin_amount == 0f) {
+        if (Math.round(current_inserted_coin_amount*100.0)/100.0f == 0f) {
             Integer current_nickel_count = current_change_in_machine.get("Nickel");
             Integer current_dime_count = current_change_in_machine.get("Dime");
             if (((current_dime_count == 0) && (current_nickel_count < 3)) || ((current_dime_count != 0) && (current_nickel_count == 0)))
@@ -57,7 +57,7 @@ public class VendingMachineKata {
         Integer current_dime_count = current_change_in_machine.get("Dime");
         while(Math.round(current_inserted_coin_amount*100.0)/100.0f > 0f) {
             if ((current_inserted_coin_amount >= .25f)&&(current_quarter_count > 0)) {
-                current_dime_count--;
+                current_quarter_count--;
                 current_change_in_machine.put("Quarter", current_quarter_count);
                 current_inserted_coin_amount-=.25f;
                 current_coin_amount_in_coin_return+=.25f;

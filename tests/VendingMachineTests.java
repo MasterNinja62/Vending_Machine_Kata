@@ -165,7 +165,7 @@ public class VendingMachineTests {
         assertEquals("$1.00", vendingMachine.check_display());
         assertEquals("$0.00", vendingMachine.check_coin_return());
         vendingMachine.return_coins();
-        assertEquals("INSERT COINS", vendingMachine.check_display());
+        assertEquals("EXACT CHANGE ONLY", vendingMachine.check_display());
         assertEquals("$1.00", vendingMachine.check_coin_return());
     }
     @Test
