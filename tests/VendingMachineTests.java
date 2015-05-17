@@ -16,25 +16,25 @@ public class VendingMachineTests {
     public void exact_change_only_displays_no_change_in_machine() {
         //order is quarter, dimes, nickel
         vendingMachine.set_change_in_machine(0, 0, 0);
-        assertEquals("EXACT CHANGE ONLY $0.00", vendingMachine.check_display());
+        assertEquals("EXACT CHANGE ONLY", vendingMachine.check_display());
     }
     @Test
     public void exact_change_only_displays_quarter_only_in_machine() {
         //order is quarter, dimes, nickel
         vendingMachine.set_change_in_machine(1, 0, 0);
-        assertEquals("EXACT CHANGE ONLY $0.00", vendingMachine.check_display());
+        assertEquals("EXACT CHANGE ONLY", vendingMachine.check_display());
     }
     @Test
     public void exact_change_only_displays_dime_only_in_machine() {
         //order is quarter, dimes, nickel
         vendingMachine.set_change_in_machine(0, 1, 0);
-        assertEquals("EXACT CHANGE ONLY $0.00", vendingMachine.check_display());
+        assertEquals("EXACT CHANGE ONLY", vendingMachine.check_display());
     }
     @Test
     public void exact_change_only_displays_nickel_only_in_machine() {
         //order is quarter, dimes, nickel
         vendingMachine.set_change_in_machine(0, 0, 1);
-        assertEquals("EXACT CHANGE ONLY $0.00", vendingMachine.check_display());
+        assertEquals("EXACT CHANGE ONLY", vendingMachine.check_display());
     }
     @Test
     public void exact_change_only_does_not_display_when_minimum_change_in_machine() {
@@ -123,5 +123,22 @@ public class VendingMachineTests {
         assertEquals("$0.35", vendingMachine.check_display());
         vendingMachine.insert_coin("Nickel");
         assertEquals("$0.40", vendingMachine.check_display());
+    }
+    @Test
+    public void after_purchase_exact_change_now_required() {
+        vendingMachine.set_change_in_machine(0, 1, 1);
+        assertEquals("INSERT COINS", vendingMachine.check_display());
+        vendingMachine.insert_coin("Quarter");
+        assertEquals("$0.25", vendingMachine.check_display());
+        assertEquals("$0.00", vendingMachine.check_coin_return());
+        vendingMachine.insert_coin("Quarter");
+        assertEquals("$0.50", vendingMachine.check_display());
+        assertEquals("$0.00", vendingMachine.check_coin_return());
+        vendingMachine.insert_coin("Quarter");
+        assertEquals("$0.75", vendingMachine.check_display());
+        assertEquals("$0.00", vendingMachine.check_coin_return());
+        assertEquals("THANK YOU", vendingMachine.select_product("Candy"));
+        assertEquals("$0.10", vendingMachine.check_coin_return());
+        assertEquals("EXACT CHANGE ONLY", vendingMachine.check_display());
     }
 }
