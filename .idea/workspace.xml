@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74aec18b-0f82-436c-b254-16ab53c2336a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Vending_Machine_Kata/com/masterninja62/VendingMachineKata.class" afterPath="$PROJECT_DIR$/out/production/Vending_Machine_Kata/com/masterninja62/VendingMachineKata.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/masterninja62/VendingMachineKata.java" afterPath="$PROJECT_DIR$/src/com/masterninja62/VendingMachineKata.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/VendingMachineTests.java" afterPath="$PROJECT_DIR$/tests/VendingMachineTests.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/Vending_Machine_Kata/VendingMachineTests.class" afterPath="$PROJECT_DIR$/out/test/Vending_Machine_Kata/VendingMachineTests.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Vending_Machine_Kata.iws" />
@@ -27,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="VendingMachineTests.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="VendingMachineTests.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/VendingMachineTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.67504185">
-              <caret line="167" column="74" selection-start-line="167" selection-start-column="74" selection-end-line="167" selection-end-column="74" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="163" column="45" selection-start-line="163" selection-start-column="45" selection-end-line="163" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#251#252#0" expanded="true" />
@@ -43,10 +41,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VendingMachineKata.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="VendingMachineKata.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/masterninja62/VendingMachineKata.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="-1.8475711">
               <caret line="32" column="65" selection-start-line="32" selection-start-column="65" selection-end-line="32" selection-end-column="65" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -547,11 +545,17 @@
       <option name="project" value="LOCAL" />
       <updated>1431846823596</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Determined a rounding error. fixed and values are as expected according to the test cases.&#10;">
+      <created>1431847791921</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1431847791921</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -562,7 +566,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32359308" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32359308" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -618,7 +622,8 @@
     <MESSAGE value="Added 2 tests for return coin checking." />
     <MESSAGE value="Misran some prior tests still making tests green." />
     <MESSAGE value="Fixed most of the issues issue after not running all tests. Fixed precision error and have product cost when not full cost inserted now. Wrappign up last test case&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed most of the issues issue after not running all tests. Fixed precision error and have product cost when not full cost inserted now. Wrappign up last test case&#10;" />
+    <MESSAGE value="Determined a rounding error. fixed and values are as expected according to the test cases.&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Determined a rounding error. fixed and values are as expected according to the test cases.&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -663,26 +668,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/masterninja62/VendingMachineKata.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="65" selection-start-line="32" selection-start-column="65" selection-end-line="32" selection-end-column="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/VendingMachineTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67504185">
-          <caret line="167" column="74" selection-start-line="167" selection-start-column="74" selection-end-line="167" selection-end-column="74" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="163" column="45" selection-start-line="163" selection-start-column="45" selection-end-line="163" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#251#252#0" expanded="true" />
             <element signature="e#308#309#0" expanded="true" />
             <element signature="e#2474#2475#0" expanded="true" />
             <element signature="e#2550#2551#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/masterninja62/VendingMachineKata.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.8475711">
+          <caret line="32" column="65" selection-start-line="32" selection-start-column="65" selection-end-line="32" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
