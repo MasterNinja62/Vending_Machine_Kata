@@ -79,8 +79,8 @@ public class VendingMachineTests {
     public void invalid_coin() {
         assertEquals("INSERT COINS", vendingMachine.check_display());
         vendingMachine.insert_coin("Penny");
-        assertEquals("$0.00", vendingMachine.check_display());
         assertEquals("Penny", vendingMachine.check_coin_return());
+        assertEquals("$0.00", vendingMachine.check_display());
     }
     @Test
     public void sold_out_no_money_inserted() {
