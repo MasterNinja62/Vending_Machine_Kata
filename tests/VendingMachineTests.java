@@ -141,4 +141,55 @@ public class VendingMachineTests {
         assertEquals("$0.10", vendingMachine.check_coin_return());
         assertEquals("EXACT CHANGE ONLY", vendingMachine.check_display());
     }
+    @Test
+    public void excess_coins_inserted_none_already_in_machine() {
+        vendingMachine.set_change_in_machine(0, 0, 0);
+        assertEquals("EXACT CHANGE ONLY", vendingMachine.check_display());
+        vendingMachine.insert_coin("Quarter");
+        assertEquals("$0.25", vendingMachine.check_display());
+        assertEquals("$0.00", vendingMachine.check_coin_return());
+        vendingMachine.insert_coin("Quarter");
+        assertEquals("$0.50", vendingMachine.check_display());
+        assertEquals("$0.00", vendingMachine.check_coin_return());
+        vendingMachine.insert_coin("Quarter");
+        assertEquals("$0.75", vendingMachine.check_display());
+        assertEquals("$0.00", vendingMachine.check_coin_return());
+        vendingMachine.insert_coin("Dime");
+        assertEquals("$0.85", vendingMachine.check_display());
+        assertEquals("$0.00", vendingMachine.check_coin_return());
+        vendingMachine.insert_coin("Dime");
+        assertEquals("$0.95", vendingMachine.check_display());
+        assertEquals("$0.00", vendingMachine.check_coin_return());
+        vendingMachine.insert_coin("Nickel");
+        assertEquals("$1.00", vendingMachine.check_display());
+        assertEquals("$0.00", vendingMachine.check_coin_return());
+        vendingMachine.return_coins();
+        assertEquals("INSERT COINS", vendingMachine.check_display());
+        assertEquals("$1.00", vendingMachine.check_display());
+    }
+    @Test
+    public void excess_coins_inserted_some_already_in_machine() {
+        assertEquals("EXACT CHANGE ONLY", vendingMachine.check_display());
+        vendingMachine.insert_coin("Quarter");
+        assertEquals("$0.25", vendingMachine.check_display());
+        assertEquals("$0.00", vendingMachine.check_coin_return());
+        vendingMachine.insert_coin("Quarter");
+        assertEquals("$0.50", vendingMachine.check_display());
+        assertEquals("$0.00", vendingMachine.check_coin_return());
+        vendingMachine.insert_coin("Quarter");
+        assertEquals("$0.75", vendingMachine.check_display());
+        assertEquals("$0.00", vendingMachine.check_coin_return());
+        vendingMachine.insert_coin("Dime");
+        assertEquals("$0.85", vendingMachine.check_display());
+        assertEquals("$0.00", vendingMachine.check_coin_return());
+        vendingMachine.insert_coin("Dime");
+        assertEquals("$0.95", vendingMachine.check_display());
+        assertEquals("$0.00", vendingMachine.check_coin_return());
+        vendingMachine.insert_coin("Nickel");
+        assertEquals("$1.00", vendingMachine.check_display());
+        assertEquals("$0.00", vendingMachine.check_coin_return());
+        vendingMachine.return_coins();
+        assertEquals("INSERT COINS", vendingMachine.check_display());
+        assertEquals("$1.00", vendingMachine.check_display());
+    }
 }

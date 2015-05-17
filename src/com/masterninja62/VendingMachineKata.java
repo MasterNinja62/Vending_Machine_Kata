@@ -52,10 +52,17 @@ public class VendingMachineKata {
     }
 
     public void return_coins() {
+        Integer current_quarter_count = current_change_in_machine.get("Quarter");
         Integer current_nickel_count = current_change_in_machine.get("Nickel");
         Integer current_dime_count = current_change_in_machine.get("Dime");
         while(current_inserted_coin_amount > 0) {
-            if ((current_coin_amount_in_coin_return >= .1f)&&(current_dime_count > 0)) {
+            if ((current_coin_amount_in_coin_return >= .25f)&&(current_quarter_count > 0)) {
+                current_dime_count--;
+                current_change_in_machine.put("Quarter", current_quarter_count);
+                current_inserted_coin_amount-=.25f;
+                current_coin_amount_in_coin_return+=.25f;
+            }
+            else if ((current_coin_amount_in_coin_return >= .1f)&&(current_dime_count > 0)) {
                 current_dime_count--;
                 current_change_in_machine.put("Dime", current_dime_count);
                 current_inserted_coin_amount-=.1f;
