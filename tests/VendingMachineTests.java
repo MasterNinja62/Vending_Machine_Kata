@@ -47,6 +47,16 @@ public class VendingMachineTests {
         assertEquals("INSERT COINS", vendingMachine.check_display());
     }
     @Test
+     public void exact_change_only_does_not_display_when_minimum_nickels_in_machine() {
+        //minimum determined by costs and acceptable currency
+        //quarter and dime for chips means nickel returned as change
+        //all quarters for candy means dime returned as change
+        //must have both nickel and dime or potential for exact change occurs
+        //order is quarter, dimes, nickel
+        vendingMachine.set_change_in_machine(0, 0, 3);
+        assertEquals("INSERT COINS", vendingMachine.check_display());
+    }
+    @Test
     public void insert_coins_displays() {
         assertEquals("INSERT COINS", vendingMachine.check_display());
     }
@@ -83,7 +93,7 @@ public class VendingMachineTests {
     @Test
     public void sold_out_money_inserted() {
         //order cola, chips, candy
-        vendingMachine.stock_products(0,0,0);
+        vendingMachine.stock_products(0, 0, 0);
         assertEquals("INSERT COINS", vendingMachine.check_display());
         vendingMachine.insert_coin("Quarter");
         assertEquals("$0.25", vendingMachine.check_display());
