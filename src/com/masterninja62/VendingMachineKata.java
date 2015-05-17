@@ -9,6 +9,11 @@ public class VendingMachineKata {
         put("Dime", .1f);
         put("Nickel", .05f);
     }};
+    private Map<String, Float> cost_of_products = new HashMap<String, Float>() {{
+        put("Cola", 1f);
+        put("Chips", .5f);
+        put("Candy", .65f);
+    }};
     private Map<String, Integer> current_inventory_counts = new HashMap<String, Integer>() {{
         put("Cola", 3);
         put("Chips", 3);
@@ -47,14 +52,28 @@ public class VendingMachineKata {
     }
 
     public void return_coins() {
-        current_coin_amount_in_coin_return = current_inserted_coin_amount;
-        current_inserted_coin_amount = 0f;
+        Integer current_nickel_count = current_change_in_machine.get("Nickel");
+        Integer current_dime_count = current_change_in_machine.get("Dime");
+        while(current_inserted_coin_amount > 0) {
+            if ((current_coin_amount_in_coin_return >= .1f)&&(current_dime_count > 0)) {
+                current_dime_count--;
+                current_change_in_machine.put("Dime", current_dime_count);
+                current_inserted_coin_amount-=.1f;
+                current_coin_amount_in_coin_return+=.1f;
+            }
+            else {
+                current_nickel_count--;
+                current_change_in_machine.put("Nickel", current_nickel_count);
+                current_inserted_coin_amount-=.05f;
+                current_coin_amount_in_coin_return+=.05f;
+            }
+        }
     }
 
     public void stock_products(Integer cola_count, Integer chip_count, Integer candy_count) {
-        current_change_in_machine.put("Cola", cola_count);
-        current_change_in_machine.put("Chip", chip_count);
-        current_change_in_machine.put("Candy", candy_count);
+        current_inventory_counts.put("Cola", cola_count);
+        current_inventory_counts.put("Chips", chip_count);
+        current_inventory_counts.put("Candy", candy_count);
     }
 
     public void insert_coin(String coin) {
@@ -71,7 +90,21 @@ public class VendingMachineKata {
     }
 
     public String select_product(String product) {
-        return "INSERT COINS";
+        Integer current_inventory_quantity = current_inventory_counts.get(product);
+        Float cost_of_product = cost_of_products.get(product);
+        if(current_inventory_quantity == 0) {
+            return "SOLD OUT";
+        }
+        else if (cost_of_product <= current_inserted_coin_amount) {
+            current_inventory_quantity++;
+            current_inventory_counts.put(product, current_inventory_quantity);
+            current_inserted_coin_amount -= cost_of_product;
+            return_coins();
+            return "THANK YOU";
+        }
+        else {
+            return "INSERT COINS";
+        }
     }
 
     public void set_change_in_machine(Integer quarter_count, Integer dime_count, Integer nickel_count) {

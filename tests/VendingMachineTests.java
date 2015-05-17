@@ -85,19 +85,19 @@ public class VendingMachineTests {
     @Test
     public void sold_out_no_money_inserted() {
         //order cola, chips, candy
-        vendingMachine.stock_products(0, 0, 0);
+        vendingMachine.stock_products(0, 1, 1);
         assertEquals("INSERT COINS", vendingMachine.check_display());
-        assertEquals("SOLD OUT", vendingMachine.select_product("Candy"));
+        assertEquals("SOLD OUT", vendingMachine.select_product("Cola"));
         assertEquals("$0.00", vendingMachine.check_display());
     }
     @Test
     public void sold_out_money_inserted() {
         //order cola, chips, candy
-        vendingMachine.stock_products(0, 0, 0);
+        vendingMachine.stock_products(1, 0, 1);
         assertEquals("INSERT COINS", vendingMachine.check_display());
         vendingMachine.insert_coin("Quarter");
         assertEquals("$0.25", vendingMachine.check_display());
-        assertEquals("SOLD OUT", vendingMachine.select_product("Candy"));
+        assertEquals("SOLD OUT", vendingMachine.select_product("Chips"));
         assertEquals("$0.25", vendingMachine.check_display());
     }
     @Test
